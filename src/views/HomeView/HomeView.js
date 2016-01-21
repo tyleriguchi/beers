@@ -30,7 +30,7 @@ export class HomeView extends Component {
       return (
         <div>
           <BeerList beers={beers}/>
-          <button onClick={ () =>  actions.addBeer()}>Add Beer</button>
+          <Link to={'/new-beer'}>Add a Beer</Link>
         </div>
       )
     }
@@ -42,6 +42,7 @@ function mapDispatchToProps(dispatch) {
     actions: bindActionCreators(BeerActions, dispatch)
   }
 }
+
 export default connect(
   state => state,
   mapDispatchToProps
