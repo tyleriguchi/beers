@@ -9,12 +9,14 @@ import { Route, IndexRoute, Redirect } from 'react-router'
 import CoreLayout from 'layouts/CoreLayout/CoreLayout'
 import HomeView from 'views/HomeView/HomeView'
 import NotFoundView from 'views/NotFoundView/NotFoundView'
-import BeerView from 'views/BeerView/BeerView'
+import BeerItemView from 'views/BeerView/BeerItemView'
+import BeerNewView from 'views/BeerView/BeerNewView'
 
 export default (
   <Route path='/' component={CoreLayout}>
     <IndexRoute component={HomeView} />
-    <Route path='beer/:beerId' component={BeerView} />
+    <Route path='beer/:beerId' component={BeerItemView} />
+    <Route path='/new-beer' component={BeerNewView} />
     <Route path='/404' component={NotFoundView} />
     <Redirect from='*' to='/404' />
   </Route>
