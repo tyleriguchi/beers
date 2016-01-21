@@ -12,7 +12,6 @@ import Navigation from '../../containers/Navigation';
 // CoreLayout is a pure function of its props, so we can
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
-  console.log('history', children.props.history)
   return  (
     <div>
       <Navigation />
