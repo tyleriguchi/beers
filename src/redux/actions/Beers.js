@@ -1,8 +1,9 @@
 import * as types from '../constants/BeerActionTypes';
 
-export function addBeer() {
-  console.log('asfd')
+export function addBeer(beer) {
+  console.log('hit', beer)
   return {
-    type: types.ADD_BEER
+    type: types.ADD_BEER,
+    beer
   }
 }
