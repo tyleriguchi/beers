@@ -12,11 +12,9 @@ import '../../styles/core.scss'
 // define it with a plain javascript function...
 function CoreLayout ({ children }) {
   return (
-    <div className='page-container'>
-      <div className='view-container'>
-        {children}
-      </div>
-    </div>
+    <main className='main-container'>
+      {children}
+    </main>
   )
 }
 
