@@ -1,8 +1,10 @@
 import React, { PropTypes, Component } from 'react'
+import { bindActionCreators } from 'redux'
 import { connect } from 'react-redux'
 import { Link } from 'react-router'
 import classes from './HomeView.scss'
 import BeerList from '../../components/BeerList'
+import * as BeerActions from '../../redux/actions/Beers'
 
 // We define mapStateToProps where we'd normally use
 // the @connect decorator so the data requirements are clear upfront, but then
@@ -13,16 +15,34 @@ import BeerList from '../../components/BeerList'
 export class HomeView extends Component {
 
   render () {
-    const { dispatch, beers, children } = this.props;
+    const { actions, beers, children } = this.props;
 
+    console.log('actions', this.props)
     const hasChildren= !!children;
     if (hasChildren) {
-      return (<div>{children}</div>)
+      return (
+        <div>
+          {children}
+        </div>
+      )
     }
     else {
-      return (<BeerList beers={beers}/>)
+      return (
+        <div>
+          <BeerList beers={beers}/>
+          <button onClick={ () =>  actions.addBeer()}>Add Beer</button>
+        </div>
+      )
     }
   }
 }
 
-export default connect(state => state)(HomeView)
+function mapDispatchToProps(dispatch) {
+  return {
+    actions: bindActionCreators(BeerActions, dispatch)
+  }
+}
+export default connect(
+  state => state,
+  mapDispatchToProps
+)(HomeView)
