@@ -17,7 +17,6 @@ export class HomeView extends Component {
   render () {
     const { actions, beers, children } = this.props;
 
-    console.log('actions', this.props)
     const hasChildren= !!children;
     if (hasChildren) {
       return (
