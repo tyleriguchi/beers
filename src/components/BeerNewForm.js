@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
-import {reduxForm} from 'redux-form';
+import { reduxForm } from 'redux-form';
+import TextField from 'material-ui/lib/text-field';
+import RaisedButton from 'material-ui/lib/raised-button';
 
 class BeerNewForm extends Component {
   render() {
@@ -8,18 +10,27 @@ class BeerNewForm extends Component {
     return (
       <form onSubmit={ handleSubmit(createBeer) }>
         <div>
-          <label>Name</label>
-          <input type="text" placeholder="Name" {...name}/>
+          <TextField
+            hintText="Beer Name"
+            {...name}
+            />
         </div>
+
         <div>
-          <label>Brewery</label>
-          <input type="text" placeholder="Brewery" {...brewery}/>
+          <TextField
+            hintText="Brewery"
+            {...brewery}
+            />
         </div>
+
         <div>
-          <label>Beer Type</label>
-          <input type="text" placeholder="Beer Type" {...type}/>
+          <TextField
+            hintText="Beer Type"
+            {...type}
+            />
         </div>
-        <button onClick={ handleSubmit(createBeer) }>Submit</button>
+
+        <RaisedButton onClick={ handleSubmit(createBeer)} label="Add Beer" primary={true} />
       </form>
     );
   }
