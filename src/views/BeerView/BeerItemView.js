@@ -34,7 +34,7 @@ let Beer = class Beer extends Component {
           <h1>{beer.name}</h1>
           <ul className='list'>
             <li>{beer.brewery}</li>
-            <li>{beer.type}</li>
+            <li>{beer.style}</li>
             <li>{beer.abv}</li>
             <li>{beer.description}</li>
             <Link to={`/beer/${beer.id}/edit`}>Edit</Link>

@@ -6,3 +6,10 @@ export function addBeer(beer) {
     beer
   }
 }
+
+export function updateBeer(beer) {
+  return {
+    type: types.UPDATE_BEER,
+    beer
+  }
+}

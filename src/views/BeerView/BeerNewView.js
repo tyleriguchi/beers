@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { routeActions } from 'redux-simple-router';
 import * as BeerActions from '../../redux/actions/Beers';
-import BeerNewForm from '../../components/BeerNewForm';
+import BeerForm from '../../containers/BeerForm';
 
 class BeerCreate extends Component {
   constructor(props) {
@@ -21,8 +21,8 @@ class BeerCreate extends Component {
   render() {
     return (
       <div>
-        <BeerNewForm
-          createBeer={ this.createBeer.bind(this) }
+        <BeerForm
+          handleBeerForm={ this.createBeer.bind(this) }
         />
       </div>
     )

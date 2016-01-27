@@ -3,7 +3,7 @@ import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
 import { Link } from 'react-router';
 import { routeActions } from 'redux-simple-router';
-import BeerNewForm from '../../components/BeerNewForm';
+import BeerForm from '../../containers/BeerForm';
 import * as BeerActions from '../../redux/actions/Beers';
 
 class BeerEdit extends Component {
@@ -19,10 +19,13 @@ class BeerEdit extends Component {
     }
   }
 
-  createBeer(beer) {
+  updateBeer(beer) {
     const { beerActions, routeActions } = this.props;
 
-    beerActions.addBeer(beer);
+    //TODO refactor
+    beer.id = this.state.beer.id;
+
+    beerActions.updateBeer(beer);
     routeActions.push('/');
   }
 
@@ -30,9 +33,9 @@ class BeerEdit extends Component {
     const beer = this.state.beer;
 
     return (
-      <BeerNewForm
+      <BeerForm
         editBeer={beer}
-        createBeer={ this.createBeer.bind(this) }
+        handleBeerForm={ this.updateBeer.bind(this) }
       />
     )
   }
