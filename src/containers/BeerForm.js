@@ -21,10 +21,10 @@ class BeerForm extends Component {
   }
 
   render() {
-    const { handleBeerForm, fields: {name, brewery, style}, handleSubmit } = this.props;
+    const { handleBeerForm, fields: {name, brewery, style, abv, ibu}, handleSubmit } = this.props;
 
     const buttonLabel = this.props.editBeer ? 'Update Beer' : 'Create Beer';
-    
+
     return (
       <form onSubmit={ handleSubmit(handleBeerForm) }>
         <div>
@@ -48,6 +48,20 @@ class BeerForm extends Component {
             />
         </div>
 
+        <div>
+          <TextField
+            hintText="ABV"
+            {...abv}
+            />
+        </div>
+
+        <div>
+          <TextField
+            hintText="IBU"
+            {...ibu}
+            />
+        </div>
+
         <RaisedButton onClick={ handleSubmit(handleBeerForm)} label={buttonLabel} primary={true} />
       </form>
     );
@@ -56,7 +70,7 @@ class BeerForm extends Component {
 
 BeerForm = reduxForm({
   form: 'new-beer',
-  fields: ['name', 'brewery', 'style']
+  fields: ['name', 'brewery', 'style', 'abv', 'ibu']
 })(BeerForm);
 
 export default BeerForm;
