@@ -38,9 +38,11 @@ const config = {
   },
   compiler_vendor : [
     'history',
+    'material-ui',
     'react',
     'react-redux',
     'react-router',
+    'react-tap-event-plugin',
     'redux',
     'redux-actions',
     'redux-simple-router'
